@@ -169,12 +169,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5195919372577647505, guid: 579b3cdde65714243889294858e46320, type: 3}
       propertyPath: m_Name
-      value: Black Ball
+      value: Ball (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 5945440488007353326, guid: 579b3cdde65714243889294858e46320, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 3257596cd27e04d77985c2cea21d9c42, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -351,12 +347,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5195919372577647505, guid: 579b3cdde65714243889294858e46320, type: 3}
       propertyPath: m_Name
-      value: Blue Ball
+      value: Ball (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5945440488007353326, guid: 579b3cdde65714243889294858e46320, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: dcddba4239f384cc79efb64c8b9321cf, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -504,12 +496,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5195919372577647505, guid: 579b3cdde65714243889294858e46320, type: 3}
       propertyPath: m_Name
-      value: Green Ball
+      value: Ball (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 5945440488007353326, guid: 579b3cdde65714243889294858e46320, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 0cb3506e843f24b75be2a0adcb27777d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -673,12 +661,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5195919372577647505, guid: 579b3cdde65714243889294858e46320, type: 3}
       propertyPath: m_Name
-      value: White Ball
+      value: Ball (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 5945440488007353326, guid: 579b3cdde65714243889294858e46320, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 29becc3f4cc1d426592229ba6d738d9b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -734,12 +718,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5195919372577647505, guid: 579b3cdde65714243889294858e46320, type: 3}
       propertyPath: m_Name
-      value: Red Ball
+      value: Ball
       objectReference: {fileID: 0}
-    - target: {fileID: 5945440488007353326, guid: 579b3cdde65714243889294858e46320, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 415e9081351c743069c2fbb9a0501fae, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
