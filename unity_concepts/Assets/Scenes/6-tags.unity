@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Black Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 5195919372577647505, guid: 579b3cdde65714243889294858e46320, type: 3}
+      propertyPath: m_TagString
+      value: Obstacles
+      objectReference: {fileID: 0}
     - target: {fileID: 5945440488007353326, guid: 579b3cdde65714243889294858e46320, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -353,6 +357,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 5195919372577647505, guid: 579b3cdde65714243889294858e46320, type: 3}
+      propertyPath: m_TagString
+      value: Obstacles
+      objectReference: {fileID: 0}
     - target: {fileID: 5945440488007353326, guid: 579b3cdde65714243889294858e46320, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -505,6 +513,10 @@ PrefabInstance:
     - target: {fileID: 5195919372577647505, guid: 579b3cdde65714243889294858e46320, type: 3}
       propertyPath: m_Name
       value: Green Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 5195919372577647505, guid: 579b3cdde65714243889294858e46320, type: 3}
+      propertyPath: m_TagString
+      value: Obstacles
       objectReference: {fileID: 0}
     - target: {fileID: 5945440488007353326, guid: 579b3cdde65714243889294858e46320, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -675,6 +687,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: White Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 5195919372577647505, guid: 579b3cdde65714243889294858e46320, type: 3}
+      propertyPath: m_TagString
+      value: Obstacles
+      objectReference: {fileID: 0}
     - target: {fileID: 5945440488007353326, guid: 579b3cdde65714243889294858e46320, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -735,6 +751,10 @@ PrefabInstance:
     - target: {fileID: 5195919372577647505, guid: 579b3cdde65714243889294858e46320, type: 3}
       propertyPath: m_Name
       value: Red Ball
+      objectReference: {fileID: 0}
+    - target: {fileID: 5195919372577647505, guid: 579b3cdde65714243889294858e46320, type: 3}
+      propertyPath: m_TagString
+      value: Obstacles
       objectReference: {fileID: 0}
     - target: {fileID: 5945440488007353326, guid: 579b3cdde65714243889294858e46320, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
