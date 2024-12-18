@@ -13,10 +13,16 @@ unity_concepts/ProjectSettings/
 unity_concepts/UnityEditor.UI.csproj
 unity_concepts/UnityEngine.UI.csproj
 
-# Tutorial and other unnecessary assets
+# Tutorial and unnecessary assets
 unity_concepts/Assets/Settings/
 unity_concepts/Assets/TutorialInfo/
 unity_concepts/Assets/InputSystem_Actions/
+unity_concepts/Assets/Readme.asset
+
+# Ensure important scene files are tracked
+!unity_concepts/Assets/Scenes/
+!unity_concepts/Assets/Scenes/*.unity
+!unity_concepts/Assets/Scenes/*.meta
 
 # Git-specific exclusions
 .git/
