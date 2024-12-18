@@ -16,7 +16,8 @@ unity_concepts/UnityEngine.UI.csproj
 # Tutorial and unnecessary assets
 unity_concepts/Assets/Settings/
 unity_concepts/Assets/TutorialInfo/
-unity_concepts/Assets/InputSystem_Actions/
+unity_concepts/Assets/InputSystem_Actions.inputactions
+unity_concepts/Assets/InputSystem_Actions.inputactions.meta
 unity_concepts/Assets/Readme.asset
 
 # Ensure important scene files are tracked
