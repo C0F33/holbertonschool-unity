@@ -1,1 +1,1 @@
-/Users/coffee/RiderProjects/holbertonschool-0x04-unity-publishing/holbertonschool-0x04-unity-publishing
+/Users/coffee/holbertonschool-unity/unity-publishing
