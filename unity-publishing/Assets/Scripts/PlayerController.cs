@@ -1,110 +1,144 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // Required for the Text component
-using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
-{
-    public GameObject WinLoseBG;
-    public Text WinLoseText;
-    public Text healthText; // Link the healthText to UI element in the Inspector
-    public Text scoreText; // Link the scoreText UI element in the Inspector
-    public float Speed = 5f; // Movement speed
-    public int health = 5; // Player's health
+{   
+    /// <summary> Rigidbody of the player. </summary>
+    public Rigidbody rb;
+    
+    /// <summary> Movement speed of the player. </summary>
+    public float speed = 1000f;
+    
+    private int score; // Score of the player
+    
+    /// <summary> Health of the player. </summary>
+    public int health = 5;
 
-    private int score; // Player's score
-    private Rigidbody rb; // Rigidbody component reference
+    /// <summary> Score of the player. </summary>
+    public Text scoreText;
 
-    // IEnumerator for scene reloading after a delay
-    IEnumerator LoadScene(float seconds)
-    {
-        yield return new WaitForSeconds(seconds); // Wait for the specified time
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name); // Reload the current scene
-    }
+    /// <summary> Health of the player. </summary>
+    public Text healthText;
 
+    private GameObject WinLoseBG; /// Displays victory or lose.
+    
+
+
+    // Start is called before the first frame update
     void Start()
     {
-        score = 0; // Initialize score
-        SetScoreText(); // Update the scoreText UI
-        health = 5; // Reset health if needed
-        SetHealthText(); // Update the healthText UI
-        rb = GetComponent<Rigidbody>(); // Get the Rigidbody component
-        
-        // Ensure WinLoseBG is inactive at the start
-        WinLoseBG.SetActive(false); 
+      WinLoseBG = GameObject.Find("Canvas").transform.GetChild(2).gameObject;
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Goal"))
-        {
-            WinLoseText.text = "You Win!";
-            WinLoseText.color = Color.black;
-            WinLoseBG.GetComponent<Image>().color = Color.green;
-            WinLoseBG.SetActive(true); // Show the WinLoseBG when player wins
-            StartCoroutine(LoadScene(3)); // Reload the scene after 3 seconds
-        }
-
-        if (other.CompareTag("Trap"))
-        {
-            health--; // Decrease health
-            SetHealthText(); // Update health UI
-        }
-
-        if (other.CompareTag("Pickup"))
-        {
-            score++; // Increment score
-            SetScoreText(); // Update score UI
-            other.gameObject.SetActive(false); // Disable the Pickup object
-        }
-    }
-
+    
+    
+    
+    
+    // Update is called once per frame
     void Update()
     {
-        if (health <= 0)
+        esc_pause();
+        /// Updates the score to the UI.
+        SetScoreText();
+
+        /// Updates the health to the UI.
+        SetHealthText();
+
+
+        // GetAxis Inputs.
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        Vector3 dir = new Vector3(x, 0, z).normalized;
+        Vector3 force = dir * speed * Time.deltaTime; 
+        rb.AddForce(force);
+
+
+
+        // Condition to reset the score upon health reaches 0.
+        if (health == 0)
         {
-            WinLoseText.text = "Game Over!";
-            WinLoseText.color = Color.white;
+            /// Debug.Log("Game Over!"); /// Removed and replaced with a UI.
+            health = 5;
+            score = 0;
+            Scene scene = SceneManager.GetActiveScene();
+           /// SceneManager.LoadScene(scene.name);
+            
+        }
+
+    }
+
+    void OnTriggerEnter(Collider other) 
+    {
+        // Condition to add +1 to the score and destroy the coin upon touching it.
+        if (other.tag == "Pickup")
+        {
+            score++;
+            /// Debug.Log($"Score: {score}"); /// removed and replaced with a UI.
+            Destroy(other.gameObject);
+        }
+
+        // Condition to manage the health of the player.
+        if (other.tag == "Trap")
+        {
+            health--;
+            /// Debug.Log($"Health: {health}"); /// removed and replaced with a UI.
+            
+            if (health == 0)
+            {
+            WinLoseBG.SetActive(true);
+            WinLoseBG.transform.GetChild(0).GetComponent<Text>().text = "Game Over!";
+            WinLoseBG.transform.GetChild(0).GetComponent<Text>().color = Color.white;
             WinLoseBG.GetComponent<Image>().color = Color.red;
-            WinLoseBG.SetActive(true); // Show the WinLoseBG when player loses
-            StartCoroutine(LoadScene(3)); // Reload the scene after 3 seconds
+            StartCoroutine(LoadScene(3));
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+
+        // Condition to let the player know that they've won upon touching the finish line.
+        if (other.tag == "Goal")
         {
-            SceneManager.LoadScene("menu"); // Replace "menu" with the actual name of your menu scene
+            /// Debug.Log("You win!"); /// removed and replaced with a UI.
+            WinLoseBG.SetActive(true);
+            WinLoseBG.transform.GetChild(0).GetComponent<Text>().text = "You Win!";
+            WinLoseBG.transform.GetChild(0).GetComponent<Text>().color = Color.black;
+            WinLoseBG.GetComponent<Image>().color = Color.green;
+            StartCoroutine(LoadScene(3));
+        }
+
+    }
+
+
+
+    void SetScoreText() /// Method to manage the score UI.
+    {
+        this.scoreText.text = $"score: {score}";
+    }
+
+
+    void SetHealthText() /// Method to manage the health UI.
+    {
+        this.healthText.text = $"health: {health}";
+    }
+
+
+/// <summary> Coroutine to reload the scene after number of seconds. </summary>
+    /// <param name="seconds">Number of seconds before reloading the scene</param>
+    /// <returns></returns>
+    IEnumerator LoadScene(float seconds){
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+
+    public void esc_pause()
+    {
+        if (Input.GetButton("Cancel") == true)
+        { 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
     }
 
-    void FixedUpdate()
-    {
-        // Get input from WASD/Arrow keys
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
-
-        // Create a movement vector
-        Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
-
-        // Adjust movement speed for sprinting
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-        {
-            rb.linearVelocity = movement * Speed * 2; // Double speed
-        }
-        else
-        {
-            rb.linearVelocity = movement * Speed; // Normal speed
-        }
-    }
-
-    void SetScoreText()
-    {
-        // Update the scoreText UI with the current score
-        scoreText.text = "Score: " + score.ToString();
-    }
-
-    void SetHealthText()
-    {
-        // Update the healthText UI with the current health
-        healthText.text = "Health: " + health.ToString();
-    }
 }

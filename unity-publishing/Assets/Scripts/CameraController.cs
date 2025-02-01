@@ -1,19 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public GameObject player; // Reference to the player object
-    private Vector3 offset;   // Offset between the camera and player
-
+    
+    public GameObject player;
+    private Vector3 offset; 
+    public GameObject camera;
+    
+    // Start is called before the first frame update
     void Start()
     {
-        // Calculate and store the offset value by subtracting the player's position from the camera's position
-        offset = transform.position - player.transform.position;
+        offset = camera.transform.position - player.transform.position;
     }
 
+    // Update is called once per frame
     void Update()
     {
-        // Set the camera's position to the player's position plus the offset
-        transform.position = player.transform.position + offset;
+        camera.transform.position = player.transform.position + offset;
     }
 }
