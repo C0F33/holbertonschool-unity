@@ -10,7 +10,7 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 
-# Unity auto-generated files
+# Unity auto-generated files (DO NOT TRACK THESE)
 unity-assets_models_textures/Library/
 unity-assets_models_textures/Logs/
 unity-assets_models_textures/Temp/
@@ -18,8 +18,8 @@ unity-assets_models_textures/Obj/
 unity-assets_models_textures/Packages/
 unity-assets_models_textures/UserSettings/
 unity-assets_models_textures/ProjectSettings/
-unity-assets_models_textures/Library/
 unity-assets_models_textures/Library/PackageCache/
+
 
 
 # MemoryCaptures can get excessive in size.
